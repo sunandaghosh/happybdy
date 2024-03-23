@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Birthday</title>
+  </head>
+  <body>
+    <div class="bg_heart"></div>
+    <div class="name">
+      <h2>Happy Birthday</h2>
+      <h1>
+        <span class="mah">❤ </span>🌹 C<span class="nah">❤</span>c<span
+          class="nah"
+          >❤</span
+        >🌹<span class="mah">❤</span>
+      </h1>
+      <p>
+        My dear Coco, you know i give you the name coco. do you know the meaning
+        of coco?? okay!!! cool !!! coco means crazy ha ha ha . okay now, you
+        know how much I always wish to give you the best of what the world can
+        offer. This day is no different. So I wish you a very happy birthday.
+      </p>
+      <p style="color: brown">PLease Click on the gif ↓</p>
+      <img src="happy-3747_256.gif" onclick="play()" />
+      <p></p>
+    </div>
+    <audio id="audio" src="mymusic.aac"></audio>
+    <script>
+      function play() {
+        var audio = document.getElementById("audio");
+        audio.play();
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      var love = setInterval(function () {
+        var r_num = Math.floor(Math.random() * 40) + 1;
+        var r_size = Math.floor(Math.random() * 65) + 10;
+        var r_left = Math.floor(Math.random() * 100) + 1;
+        var r_bg = Math.floor(Math.random() * 25) + 100;
+        var r_time = Math.floor(Math.random() * 5) + 5;
+
+        $(".bg_heart").append(
+          "<div class='heart' style='width:" +
+            r_size +
+            "px;height:" +
+            r_size +
+            "px;left:" +
+            r_left +
+            "%;background:rgba(255," +
+            (r_bg - 25) +
+            "," +
+            r_bg +
+            ",1);-webkit-animation:love " +
+            r_time +
+            "s ease;-moz-animation:love " +
+            r_time +
+            "s ease;-ms-animation:love " +
+            r_time +
+            "s ease;animation:love " +
+            r_time +
+            "s ease'></div>"
+        );
+
+        $(".bg_heart").append(
+          "<div class='heart' style='width:" +
+            (r_size - 10) +
+            "px;height:" +
+            (r_size - 10) +
+            "px;left:" +
+            (r_left + r_num) +
+            "%;background:rgba(255," +
+            (r_bg - 25) +
+            "," +
+            (r_bg + 25) +
+            ",1);-webkit-animation:love " +
+            (r_time + 5) +
+            "s ease;-moz-animation:love " +
+            (r_time + 5) +
+            "s ease;-ms-animation:love " +
+            (r_time + 5) +
+            "s ease;animation:love " +
+            (r_time + 5) +
+            "s ease'></div>"
+        );
+
+        $(".heart").each(function () {
+          var top = $(this)
+            .css("top")
+            .replace(/[^-\d\.]/g, "");
+          var width = $(this)
+            .css("width")
+            .replace(/[^-\d\.]/g, "");
+          if (top <= -100 || width >= 150) {
+            $(this).detach();
+          }
+        });
+      }, 500);
+    </script>
+  </body>
+</html>
